@@ -89,28 +89,18 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }  
 
-.header{
-  /* width: 100%;
-  background-color: #6064c3;
-  color: rgb(246, 237, 237); */
-}
-
 .content{
-  /* border: 1px solid black; */
   display: flex ;
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }
 
 .edit-content{
-  /* border: 1px solid black; */
   width: 50%;
-  /* box-shadow: 0 3px 10px rgb(0 0 0 / 0.2); */
 }
 
 .preview{
-  /* border: 1px solid black; */
   width: 50%;
-  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
   height: fit-content;
 }
 
