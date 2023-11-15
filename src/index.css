@@ -1,3 +1,4 @@
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -12,6 +13,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+  text-align: center;
 }
 
 a {
@@ -30,6 +32,8 @@ body {
   min-width: 320px;
   min-height: 100vh;
 }
+
+
 
 h1 {
   font-size: 3.2em;
@@ -65,5 +69,56 @@ button:focus-visible {
   }
   button {
     background-color: #f9f9f9;
+    border: ridge;
   }
+}
+
+input ,
+textarea,
+button{
+  min-height: 50px;
+  border-radius: 7px;
+  border:ridge;
+  margin-bottom: 10px;
+  min-width: 50%;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}  
+
+.header{
+  /* width: 100%;
+  background-color: #6064c3;
+  color: rgb(246, 237, 237); */
+}
+
+.content{
+  /* border: 1px solid black; */
+  display: flex ;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+.edit-content{
+  /* border: 1px solid black; */
+  width: 50%;
+  /* box-shadow: 0 3px 10px rgb(0 0 0 / 0.2); */
+}
+
+.preview{
+  /* border: 1px solid black; */
+  width: 50%;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  height: fit-content;
+}
+
+.personalInfo{
+  background-color: #747bff;
+  color: #f9f9f9;
+}
+
+h3{
+  background-color: darkgray;
 }

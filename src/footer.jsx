@@ -2,10 +2,10 @@ import { FaGithub } from "react-icons/fa";
 
 function Footer() {
     return (
-        <footer>
-            <p>Github
+        <footer className="footer">
+            <a href="https://github.com/Aswin110/CV-application.git"><p>Github
             <FaGithub/>
-            </p>
+            </p></a>
         </footer>
     )
 }
