@@ -3,7 +3,7 @@ import { useState } from "react"
 // import { IoIosArrowDown } from "react-icons/io";
 
 function Education ({addEducation, education, deleteEducation, saveEducation}) {
-    const [show, setShow] = useState(true)
+    const [show, setShow] = useState(false)
     const [view, setView] = useState(true)
     return (
         <>
@@ -26,7 +26,7 @@ function Education ({addEducation, education, deleteEducation, saveEducation}) {
                 <button onClick={()=>setView(!view)}>
                     {edu.course}
                 </button>
-                {view?(
+                {view ? (
                 <form key={edu.id} onSubmit={(e) => saveEducation(edu.id, e)}>
                     <input type="text" placeholder="Course" defaultValue={edu.course}></input>
                     <input type="text" placeholder="University/School" defaultValue={edu.university}></input>

@@ -12,6 +12,7 @@ function Content() {
     const [location, setLocation] = useState(null);
     const [email, setEmail] = useState(null);
     const [education, setEducation] = useState([]);
+    const [experience, setExperience] = useState([]);
 
     function putFirstName (e) {
         setFirstName(e.target.value);
@@ -46,11 +47,29 @@ function Content() {
         
     }
 
+    function addExperience (e) {
+        e.preventDefault();
+        let id = uuidv4();
+        let position = e.target[0].value;
+        let company = e.target[1].value;
+        let start = e.target[2].value;
+        let end = e.target[3].value;
+        let description = e.target[4].value;
+        let experienceObj = { id, position, company, start, end, description }
+        setExperience((experience) => [...experience, experienceObj]);
+    }
+
     function deleteEducation (id, e) {
         e.preventDefault();
         let eduId = education.filter((edu)=> edu.id !== id);
         setEducation(eduId);
         
+    }
+
+    function deleteExperience (id, e) {
+        e.preventDefault();
+        let expId = experience.filter((exp) => exp.id !== id)
+        setExperience(expId);
     }
 
     function saveEducation (id, e) {
@@ -63,16 +82,29 @@ function Content() {
         let updatedEducation = {id, course, university, start, end, description} 
         setEducation(education.map((edu)=> {
             if (edu.id === id) {
-                console.log('true')
                 return {...edu, ...updatedEducation};
             } else {
-                console.log('true')
                 return edu;
             }
-            }))
-        }
-        console.log('education', education);
+        }))
+    }
 
+    function saveExperience (id, e ){
+        e.preventDefault();
+        let course = e.target[0].value;
+        let university = e.target[1].value;
+        let start = e.target[2].value;
+        let end = e.target[3].value;
+        let description = e.target[4].value;
+        let updatedExperience = { id, course, university, start, end, description}
+        setExperience(experience.map((exp) => {
+            if (exp.id === id) {
+                return {...exp, ...updatedExperience};
+            } else {
+                return exp;
+            }
+        }))
+    }
     
     return (
         <>
@@ -86,12 +118,17 @@ function Content() {
                         putEmail = {putEmail}
                     />
                     <Education
-                        addEducation={addEducation}
-                        education={education}
-                        deleteEducation={deleteEducation}
-                        saveEducation={saveEducation}
+                        addEducation = {addEducation}
+                        education = {education}
+                        deleteEducation = {deleteEducation}
+                        saveEducation = {saveEducation}
                     />
-                    <Experience/>
+                    <Experience
+                        addExperience={ addExperience }
+                        experience = {experience}
+                        deleteExperience = {deleteExperience}
+                        saveExperience = {saveExperience}
+                    />
                 </div>
                 <div className="preview">
                     <Preview
@@ -101,6 +138,7 @@ function Content() {
                         email = {email}
                         location = {location}
                         education = {education}
+                        experience = {experience}
                     />
                 </div>
             </div>
