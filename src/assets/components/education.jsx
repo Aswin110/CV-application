@@ -4,7 +4,7 @@ import { useState } from "react"
 
 function Education ({addEducation, education, deleteEducation, saveEducation}) {
     const [show, setShow] = useState(true)
-
+    const [view, setView] = useState(true)
     return (
         <>
             <button onClick={()=>setShow(!show)}>
@@ -21,17 +21,23 @@ function Education ({addEducation, education, deleteEducation, saveEducation}) {
             </form>
             ):''}
             {education.map((edu) => {
-                console.log('edu',edu);
                 return(
+                <>
+                <button onClick={()=>setView(!view)}>
+                    {edu.course}
+                </button>
+                {view?(
                 <form key={edu.id} onSubmit={(e) => saveEducation(edu.id, e)}>
-                    <input type="text" defaultValue={edu.course}></input>
-                    <input type="text" defaultValue={edu.university}></input>
-                    <input type="number" defaultValue={edu.start} ></input>
-                    <input type="number" defaultValue={edu.end} ></input>
-                    <textarea type="text" defaultValue={edu.description}></textarea>
+                    <input type="text" placeholder="Course" defaultValue={edu.course}></input>
+                    <input type="text" placeholder="University/School" defaultValue={edu.university}></input>
+                    <input type="number" placeholder="Start Year" defaultValue={edu.start} ></input>
+                    <input type="number" placeholder="End Year" defaultValue={edu.end} ></input>
+                    <textarea type="text" placeholder="Description" defaultValue={edu.description}></textarea>
                     <button type="submit">save</button>
                     <button onClick={(e)=>deleteEducation(edu.id, e)}>Delete</button>
-                </form>)
+                </form>
+                ):''}
+                </>)
             })}
         </>
     )

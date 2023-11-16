@@ -55,8 +55,24 @@ function Content() {
 
     function saveEducation (id, e) {
         e.preventDefault();
-        console.log(id);
-    }
+        let course = e.target[0].value;
+        let university = e.target[1].value;
+        let start = e.target[2].value;
+        let end = e.target[3].value;
+        let description = e.target[4].value;
+        let updatedEducation = {id, course, university, start, end, description} 
+        setEducation(education.map((edu)=> {
+            if (edu.id === id) {
+                console.log('true')
+                return {...edu, ...updatedEducation};
+            } else {
+                console.log('true')
+                return edu;
+            }
+            }))
+        }
+        console.log('education', education);
+
     
     return (
         <>
