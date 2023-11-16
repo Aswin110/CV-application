@@ -2,7 +2,7 @@ import { FaPhone } from "react-icons/fa6";
 import { IoMailSharp } from "react-icons/io5";
 import { IoLocation } from "react-icons/io5";
 
-function Preview({firstName, secondName, phoneNumber, email, location}) {
+function Preview({firstName, secondName, phoneNumber, email, location, education}) {
     return (
         <>
             <div className="cv-preview">
@@ -12,11 +12,16 @@ function Preview({firstName, secondName, phoneNumber, email, location}) {
                 </div>
                 <div className="education heading">
                     <h3>Education</h3>
-                    <h4>Course</h4>
-                    <div>
-                        <span>start-end </span><span>University </span>
-                    </div>
-                    <div>Description</div>
+                    {education.map((edu) => {
+                        return (<div key={edu.id}>
+                                    <h4>{edu.course}</h4>
+                                    <div>
+                                        <span>{edu.start}-{edu.end} </span><span>{edu.university} </span>
+                                    </div>
+                                    <div>{edu.description}</div>
+                                </div>
+                                )
+                    })} 
                 </div>
                 <div className="Experience heading">
                     <h3>Experience</h3>
