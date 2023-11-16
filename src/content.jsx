@@ -44,7 +44,7 @@ function Content() {
         let description = e.target[4].value;
         let educationObj = { id, course, university, start, end, description}
         setEducation((education) => [...education, educationObj]);
-        
+        clear(e);
     }
 
     function addExperience (e) {
@@ -57,6 +57,13 @@ function Content() {
         let description = e.target[4].value;
         let experienceObj = { id, position, company, start, end, description }
         setExperience((experience) => [...experience, experienceObj]);
+        clear(e);
+    }
+
+    function clear (e) {
+        for (let i = 0; i < 5; i++) {
+            e.target[i].value = '' ;
+        }
     }
 
     function deleteEducation (id, e) {
@@ -91,12 +98,13 @@ function Content() {
 
     function saveExperience (id, e ){
         e.preventDefault();
-        let course = e.target[0].value;
-        let university = e.target[1].value;
+        console.log(e,e.target[0].value,e.target[1].value);
+        let position = e.target[0].value;
+        let company = e.target[1].value;
         let start = e.target[2].value;
         let end = e.target[3].value;
         let description = e.target[4].value;
-        let updatedExperience = { id, course, university, start, end, description}
+        let updatedExperience = { id, position, company, start, end, description}
         setExperience(experience.map((exp) => {
             if (exp.id === id) {
                 return {...exp, ...updatedExperience};

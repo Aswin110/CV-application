@@ -83,19 +83,14 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }  
 
-/*.content{
-  display: flex ;
+.content{
+  display: grid ;
+  grid-template: 1fr/1fr 1fr;
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }
 
-.edit-content{
-  width: 50%;
-}
-
 .preview{
-  width: 50%;
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
-  height: fit-content;
 }
 
 .personalInfo{
@@ -105,4 +100,4 @@ input::-webkit-inner-spin-button {
 
 h3{
   background-color: darkgray;
-} */
+} 

@@ -3,7 +3,7 @@ import { useState } from "react"
 // import { IoIosArrowDown } from "react-icons/io";
 
 function Education ({addEducation, education, deleteEducation, saveEducation}) {
-    const [show, setShow] = useState(false)
+    const [show, setShow] = useState(true)
     const [view, setView] = useState(true)
     return (
         <div>
@@ -22,7 +22,7 @@ function Education ({addEducation, education, deleteEducation, saveEducation}) {
             ):''}
             {education.map((edu) => {
                 return(
-                <>
+                <div key={edu.id}>
                 <button onClick={()=>setView(!view)}>
                     {edu.course}
                 </button>
@@ -39,7 +39,7 @@ function Education ({addEducation, education, deleteEducation, saveEducation}) {
                     </div>
                 </form>
                 ):''}
-                </>)
+                </div>)
             })}
         </div>
     )
