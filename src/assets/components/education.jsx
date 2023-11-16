@@ -6,7 +6,7 @@ function Education ({addEducation, education, deleteEducation, saveEducation}) {
     const [show, setShow] = useState(false)
     const [view, setView] = useState(true)
     return (
-        <>
+        <div>
             <button onClick={()=>setShow(!show)}>
                 <h2>Education </h2>
             </button>
@@ -17,7 +17,7 @@ function Education ({addEducation, education, deleteEducation, saveEducation}) {
                 <input type="number" placeholder="Start Year"></input>
                 <input type="number" placeholder="End Year"></input>
                 <textarea type="text" placeholder="Description"></textarea>
-                <button type="submit">Add</button>
+                <div><button type="submit">Add</button></div>
             </form>
             ):''}
             {education.map((edu) => {
@@ -33,13 +33,15 @@ function Education ({addEducation, education, deleteEducation, saveEducation}) {
                     <input type="number" placeholder="Start Year" defaultValue={edu.start} ></input>
                     <input type="number" placeholder="End Year" defaultValue={edu.end} ></input>
                     <textarea type="text" placeholder="Description" defaultValue={edu.description}></textarea>
-                    <button type="submit">save</button>
-                    <button onClick={(e)=>deleteEducation(edu.id, e)}>Delete</button>
+                    <div>
+                        <button type="submit">save</button>
+                        <button onClick={(e)=>deleteEducation(edu.id, e)}>Delete</button>
+                    </div>
                 </form>
                 ):''}
                 </>)
             })}
-        </>
+        </div>
     )
 }
 

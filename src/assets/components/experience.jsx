@@ -4,7 +4,7 @@ function Experience ({addExperience, experience, saveExperience, deleteExperienc
     const [show, setShow] = useState(true)
     const [view, setView] = useState(true)
     return (
-        <>
+        <div>
             <button onClick={()=>setShow(!show)}>
                 <h2>Experience</h2>
             </button>
@@ -14,7 +14,7 @@ function Experience ({addExperience, experience, saveExperience, deleteExperienc
                 <input type="number" placeholder="Start Date"/>
                 <input type="number" placeholder="End Date"/>
                 <textarea type="text" placeholder="Description"/>
-                <button type="submit" >Add</button>
+                <div><button type="submit" >Add</button></div>
             </form>):''}
             {experience.map((exp)=>{
                 return(
@@ -28,13 +28,15 @@ function Experience ({addExperience, experience, saveExperience, deleteExperienc
                             <input type="number" placeholder="Start Date" defaultValue={exp.start}/>
                             <input type="number" placeholder="End Date" defaultValue={exp.end}/>
                             <textarea type="text" placeholder="Description" defaultValue={exp.description}/>
-                            <button type="submit" >Save</button>
-                            <button onClick={(e)=>deleteExperience(exp.id, e)}>Delete</button>
+                            <div>
+                                <button type="submit" >Save</button>
+                                <button onClick={(e)=>deleteExperience(exp.id, e)}>Delete</button>
+                            </div>
                         </form>) : '' }
                     </div>
                 )
             })}
-        </>
+        </div>
     )
 }
 
